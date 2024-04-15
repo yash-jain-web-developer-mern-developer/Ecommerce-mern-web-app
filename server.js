@@ -16,7 +16,7 @@ connectDB();
 
 //rest object
 const app = express();
-
+const __dirname=path.resolve();
 //middelwares
 app.use(cors());
 app.use(express.json());
