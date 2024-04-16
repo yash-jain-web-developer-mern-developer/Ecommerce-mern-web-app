@@ -17,7 +17,7 @@ const __dirname = path.resolve();
 dotenv.config();
 
 //databse config
-connectDB();
+
 
 //rest object
 const app = express();
@@ -42,9 +42,13 @@ res.sendFile(path.join(__dirname,'client','build','index.html'))
 const PORT = process.env.PORT || 8080;
 
 //run listen
+connectDB().then(()=>{
 app.listen(PORT, () => {
   console.log(
     `Server Running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan
       .white
   );
 });
+  
+})
+
